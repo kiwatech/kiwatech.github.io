@@ -11,21 +11,17 @@
     <script>
         let posts = [];
 
-        const syncWhile = (more) => {
-            if (more) {
-                fetch(`./posts/${posts.length.toString().padStart(4, 0)}.html`)
-                .then(res => {
-                    if (res.status != 200) throw res.status;
-                    res.text();
-                }).then(html => {
-                    posts.push('<div class="post">' + html + '</div>');
-                    syncWhile(more);
-                }).catch(err => {
-                    document.getElementById('posts-container').innerHTML = posts.join('\n');
-                });
-            }
+        const fetchPosts = () => {
+            fetch(`./posts/${posts.length.toString().padStart(4, 0)}.html`)
+            .then(res => {
+                if (res.status != 200) throw res.status;
+                posts.push(`<iframe class="post" href="./posts/${posts.length.toString().padStart(4, 0)}"></iframe>`);
+                fetchPosts();
+            }).catch(err => {
+                document.getElementById('posts-container').innerHTML = posts.join('\n');
+            });
         }
-        syncWhile(true);
+        fetchPosts();
     </script>
 </body>
 
