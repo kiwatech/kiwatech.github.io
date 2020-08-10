@@ -23,9 +23,9 @@
                 <h3 class="post-title">${/title: (.+)/g.exec(post)[1]}</h3>
                 <span class="post-date">${/date: (.+)/g.exec(post)[1]}</span>
                 <div class="post-contents">` + 
-                post.split('---\n')[1].replace(/!\[(.+)]\((.+)\)/g, (a, b, c) => {
+                (post.split('---\n')[1].replace(/!\[(.+)]\((.+)\)/g, (a, b, c) => {
                     return `<img alt="${b}" src="${c}">`
-                });
+                }).replace('\n', '<br>'));
         }
 
         let posts = [];
@@ -33,14 +33,15 @@
         const fetchPosts = () => {
             fetch(`./posts/${posts.length.toString().padStart(4, 0)}.txt`)
             .then(res => {
-                if (res.status != 200) throw res.status;
-                res.text();
+                if (res.status === 404) {
+                    document.getElementById('posts-container').innerHTML = posts.join('\n');
+                } else {
+                    res.text();
+                }
             }).then(md => {
                 posts.push(renderPost(md));
                 fetchPosts();
-            }).catch(err => {
-                document.getElementById('posts-container').innerHTML = posts.join('\n');
-            });
+            })
         }
         fetchPosts();
     </script>
