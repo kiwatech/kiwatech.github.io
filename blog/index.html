@@ -31,7 +31,7 @@
         let posts = [];
 
         const fetchPosts = () => {
-            fetch(`./posts/${posts.length.toString().padStart(4, 0)}.html`)
+            fetch(`./posts/${posts.length.toString().padStart(4, 0)}.txt`)
             .then(res => {
                 if (res.status != 200) throw res.status;
                 res.text();
