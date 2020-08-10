@@ -14,8 +14,10 @@
         const syncWhile = (more) => {
             if (more) {
                 fetch(`./posts/${posts.length.toString().padStart(4, 0)}.html`)
-                .then(res => res.text())
-                .then(html => {
+                .then(res => {
+                    if (res.status != 200) throw res.status;
+                    res.text();
+                }).then(html => {
                     posts.push('<div class="post">' + html + '</div>');
                     syncWhile(more);
                 }).catch(err => {
