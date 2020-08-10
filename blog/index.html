@@ -34,7 +34,9 @@
             fetch(`./posts/${posts.length.toString().padStart(4, 0)}.html`)
             .then(res => {
                 if (res.status != 200) throw res.status;
-                posts.push(`<iframe class="post" href="./posts/${posts.length.toString().padStart(4, 0)}"></iframe>`);
+                res.text();
+            }).then(md => {
+                posts.push(renderPost(md));
                 fetchPosts();
             }).catch(err => {
                 document.getElementById('posts-container').innerHTML = posts.join('\n');
