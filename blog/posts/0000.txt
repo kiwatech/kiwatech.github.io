@@ -1,0 +1,8 @@
+title: blog post
+date: 2020-08-09
+---
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et dolor ac mauris interdum condimentum. Mauris eget justo ut magna sagittis pretium. Phasellus cursus finibus urna non lobortis. Sed accumsan ac leo non pretium. Duis pretium cursus nisl, quis congue purus maximus id. Suspendisse at elementum metus. Nunc orci eros, laoreet non fermentum gravida, tincidunt id justo. Sed rutrum tellus at laoreet posuere. Phasellus aliquam interdum egestas. Suspendisse potenti. Vestibulum pretium diam quis pharetra consectetur. Aenean laoreet quam tortor, at eleifend quam finibus tincidunt. Morbi ut molestie massa. Maecenas eget massa molestie, bibendum libero et, tincidunt felis. In libero arcu, vulputate in massa sit amet, porttitor mattis felis.
+
+![alt text](./img/lipsum.png)
+
+Duis sit amet varius massa, vel tristique est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi blandit, nunc nec varius fringilla, enim sapien consectetur libero, id ornare velit purus id neque. Duis eleifend massa eu mi auctor rhoncus. Phasellus auctor at nisl posuere venenatis. Nunc ac tincidunt odio. Quisque quis condimentum justo, in ultrices massa. Suspendisse ullamcorper sem ut justo ullamcorper congue.

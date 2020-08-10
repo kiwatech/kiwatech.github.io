@@ -18,6 +18,16 @@
     </div>
 
     <script>
+        const renderPost = (post) => {
+            return `<div class="post">
+                <h3 class="post-title">${/title: (.+)/g.exec(post)[1]}</h3>
+                <span class="post-date">${/date: (.+)/g.exec(post)[1]}</span>
+                <div class="post-contents">` + 
+                post.split('---\n')[1].replace(/!\[(.+)]\((.+)\)/g, (a, b, c) => {
+                    return `<img alt="${b}" src="${c}">`
+                });
+        }
+
         let posts = [];
 
         const fetchPosts = () => {
